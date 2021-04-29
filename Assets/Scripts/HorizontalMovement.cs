@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class HorizontalMovement : MonoBehaviour
 {
+    private SettingsReader settingsReader;
     private int speedOf = 10;
     private float leftAndRightEdge = 10f;
-    public float chanceToChangeDirections = 0.001f;
+    public float chanceToChangeDirections;
+
+    private void Start()
+    {
+        chanceToChangeDirections = SettingsReader.TakeSettingByLine(2);
+    }
 
     void Update()
     {
